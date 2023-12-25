@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to taxe app</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <title>Formulaire de Taxe</title>
+</head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+<body>
+
+
+<form action="http://localhost:8082/api/tax/calculateTax" method="post">
+    <h2>Formulaire de Taxe</h2>
+    <label for="cin">Numéro d'Identification (CIN):</label>
+    <input type="text" id="cin" name="cin" required><br>
+
+    <label for="year">Année:</label>
+    <input type="text" id="year" name="year" required><br>
+
+    <label for="categorie_id">Categorie:</label>
+    <select id="categorie_id" name="categorie_id" required>
+        <option value="1">villa</option>
+        <option value="2">Maison</option>
+        <option value="3">Appartement</option>
+    </select><br>
+
+    <button type="submit">submit</button>
+</form>
+
+</body>
+</html>
